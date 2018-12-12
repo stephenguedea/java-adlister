@@ -5,16 +5,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ViewProfileServlet", urlPatterns = "/profile")
-public class ViewProfileServlet extends HttpServlet {
+@WebServlet(name = "LogOutServlet", urlPatterns = "/logout")
+public class LogOutServlet extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-//      Ensure that users can only visit the /profile page if they are logged in.
-        if(request.getSession().getAttribute("user") == null) {
+            request.getSession().removeAttribute("user");
+            request.getSession().invalidate();
             response.sendRedirect("/login");
-            return;
-        }
+    }
 
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 }
