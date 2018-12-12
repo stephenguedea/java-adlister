@@ -1,18 +1,27 @@
-public class Product {
-    private long id;
-    private String name;
-    private double price;
+import java.io.Serializable;
 
-    public Product() {}
-    public Product(String name, double price) {
-        this.name = name;
-        this.price = price;
+
+// 'BEAN'
+public class Product implements Serializable {
+    private long id;
+    private int price;
+    private String name;
+    private String description;
+
+    public Product() {
     }
 
-    public Product(long id, String name, double price) {
-        this.id = id;
+    public Product(String name, int price, String description) {
         this.name = name;
         this.price = price;
+        this.description = description;
+    }
+
+    public Product(long id, int price, String name, String description){
+        this.id = id;
+        this.price = price;
+        this.name = name;
+        this.description = description;
     }
 
     public long getId() {
@@ -23,6 +32,14 @@ public class Product {
         this.id = id;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
@@ -31,12 +48,11 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
-

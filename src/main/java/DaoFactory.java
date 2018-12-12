@@ -1,10 +1,10 @@
 public class DaoFactory {
-    private static Products productsDao;
 
-    public static Products getProductsDao() {
-        if (productsDao == null) {
-            productsDao = new ListProducts();
+    private static Products productDao;
+    public static Products getProductDao(){
+        if(productDao == null) {
+            productDao = new ListProductDao();
         }
-        return productsDao;
+        return productDao;
     }
 }

@@ -1,6 +1,10 @@
 import java.util.List;
 
+//DAO'S BLUEPRINT
 public interface Products {
-    List<Product> all(); // get all the product records
-    void insert(Product product); // persist new product to the database
+    void save(Product product);
+    void deleteById(long id);
+    Product findOne(long id);
+    List<Product> findAll();
+
 }
