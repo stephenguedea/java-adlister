@@ -9,17 +9,48 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Adlister | Ads</title>
+    <jsp:include page="../partials/head.jsp">
+        <jsp:param name="title" value="Please Log In" />
+    </jsp:include>
 </head>
+
 <body>
-    <c:forEach var="ad" items="${ads}">
-        <div class="ads">
-            <h2>Titles: ${ad.title}</h2>
-            <p>${ad.description}</p>
-            <%--<p>${ad.id}</p>--%>
-            <%--<p>${ad.userId}</p>--%>
-        </div>
-    </c:forEach>
+<jsp:include page="../partials/navbar.jsp" />
+    <div class="container">
+        <table class="table">
+
+                <%--<div class="ads">--%>
+                    <%--<h2>Titles: ${ad.title}</h2>--%>
+                    <%--<p>Description: ${ad.description}</p>--%>
+                    <%--<p>Ad ID: ${ad.id}</p>--%>
+                    <%--<p>UserID: ${ad.userId}</p>--%>
+                <%--</div>--%>
+                <thead>
+                <tr>
+
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Ad ID</th>
+                    <th scope="col">User ID</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="ad" items="${ads}">
+
+                <tr>
+
+                    <td scope="row">${ad.title} </td>
+                    <td>${ad.description}</td>
+                    <td>${ad.id}</td>
+                    <td>${ad.userId}</td>
+
+                </tr>
+                </c:forEach>
+                </tbody>
+
+        </table>
+    </div>
 </body>
 </html>
 <%-- this.id = id;
